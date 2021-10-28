@@ -1,0 +1,22 @@
+# GitIgnore file, created by M. Massenzio, 2021-10-15
+#
+.classpath.txt
+target
+.classpath
+.project
+.idea
+.settings
+.vscode
+*.iml
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Gradle files
+.gradle
+gradlew.bat
+!*/gradle/wrapper/gradle-wrapper.jar
+build/
+pkg/
+

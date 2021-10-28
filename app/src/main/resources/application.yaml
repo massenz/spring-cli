@@ -1,0 +1,13 @@
+# Example configuration file
+
+spring:
+  main:
+    banner-mode: off
+
+cluster:
+  size: 5
+
+datastore:
+  host: localhost
+  port: 20092
+  database_name: test-data
