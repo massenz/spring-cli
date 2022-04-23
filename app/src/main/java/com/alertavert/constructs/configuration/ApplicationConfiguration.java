@@ -1,6 +1,7 @@
 package com.alertavert.constructs.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,15 +16,25 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfiguration {
 
+  public static final int FIXED_CLUSTER_SIZE = 15;
+
   @Value("${cluster.size}")
   int clusterSize;
 
   @Autowired
   ApplicationProperties properties;
 
-  @Bean
-  public int clusters() {
+  // This is OBVIOUSLY contrived, but shows how to use Qualifier
+  // to select a different bean
+  @Bean @Qualifier("configured")
+  public int clusterSize() {
     return clusterSize;
+  }
+
+  @Bean
+  @Qualifier("fixed")
+  public int fiveNodes() {
+    return FIXED_CLUSTER_SIZE;
   }
 
   @Bean

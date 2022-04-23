@@ -3,6 +3,7 @@ package com.alertavert.constructs;
 import com.alertavert.constructs.configuration.ApplicationConfiguration;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +20,7 @@ public class ConsoleApplication {
   @Autowired
   String dbUri;
 
-  @Autowired
+  @Autowired @Qualifier("configured")
   int clusterSize;
 
   @PostConstruct
